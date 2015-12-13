@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <link href="../images/favicon.png" rel="icon">
+        <link id="materialcolors" rel="stylesheet" href="https://storage.googleapis.com/code.getmdl.io/1.0.6/material.blue_grey-light_blue.min.css" />         
+        <link rel="stylesheet" type="text/css" href="../styles/stylesheet.css" />
+        <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+
+        <script src="https://storage.googleapis.com/code.getmdl.io/1.0.6/material.min.js"></script>
+        <script type="text/javascript" src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
+        <script type="text/javascript" src="../scripts/colorchanger.js"></script>
+        <!--<script type="text/javascript" src="../scripts/footer.js"></script>-->
+        <!--Door het inladen van het PDF word de footer niet juist geplaats, geen idee hoe op te lossen behalve hard coden-->
+        <script src="../scripts/pdf.js"></script>
+
+        <meta name="description" content="Deze website gaat over de First Lego League (FLL), je vind hier bouw en programmeer instructies, ook vind je er een score formulier." />
+        <meta name="keywords" content="FLL First Lego League Programmeren Score Trash Trek " />
+        <meta name="author" content="meta-tags generator">
+        <title>Gyro Les</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <style>
+            .mdl-card__supporting-text{ 
+                margin: auto;
+            }
+
+            .demo-card-wide {
+                max-width: 100% !important;
+                width: 800px !important;
+            }
+        </style>
+
+    </head>
+
+    <body>
+        <!-- Always shows a header, even in smaller screens. -->
+        <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+            <header class="mdl-layout__header">
+                <div class="mdl-layout__header-row">
+                    <!-- Title -->
+                    <span class="mdl-layout-title">Gyro Les</span>
+                    <!-- Add spacer, to align navigation to the right -->
+                    <div class="mdl-layout-spacer"></div>
+                    <!-- Navigation. We hide it in small screens. -->
+                    <nav class="mdl-navigation mdl-layout--large-screen-only">
+                        <a class="mdl-navigation__link" href="../index.html">Home</a>
+                        <a class="mdl-navigation__link" href="scorer.html">Score Formulier</a>
+                        <a class="mdl-navigation__link" href="build.html">Bouw Instructies</a>
+                        <a class="mdl-navigation__link thispage" href="gyro.html">Gyro Les</a>
+                        <a class="mdl-navigation__link" href="contact.php">Contact</a>
+                        <a class="mdl-navigation__link" href="over.html">Over</a>
+                    </nav>
+                </div>
+            </header>
+            <div class="mdl-layout__drawer">
+                <nav class="mdl-navigation">
+                    <a class="mdl-navigation__link" href="../index.html">Home</a>
+                    <a class="mdl-navigation__link" href="scorer.html">Score Formulier</a>
+                    <a class="mdl-navigation__link" href="build.html">Bouw Instructies</a>
+                    <a class="mdl-navigation__link" href="gyro.html">Gyro Les</a>
+                    <a class="mdl-navigation__link" href="contact.php">Contact</a>
+                    <a class="mdl-navigation__link" href="over.html">Over</a>
+                </nav>
+            </div>
+            <main class="mdl-layout__content">
+                <div class="page-content">
+
+                    <form>
+                        <div class="demo-card-wide mdl-card mdl-shadow--2dp">
+                            <div class="mdl-card__title">
+                                <h2 class="mdl-card__title-text"><span>Pagina: <span id="page_num"></span> / <span id="page_count"></span></span></h2>
+                            </div>
+                            <div id="canvas-holder" class="mdl-card__supporting-text">
+                                <canvas id="the-canvas"></canvas>
+                            </div>
+
+                            <div class="mdl-card__actions mdl-card--border" style="text-align: center;">
+                                <input id="prev" style="display:inline-block; float: left;" type="button" class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" value="vorige">
+                                <input id="next" style="display:inline-block; float: right" type="button" class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" value="volgende">
+                            </div>
+                        </div>
+
+                        <div class="demo-card-wide mdl-card mdl-shadow--2dp">
+                            <div class="mdl-card__title">
+                                <h2 class="mdl-card__title-text">Download deze les</h2>
+                            </div>
+                            <div class="mdl-card__supporting-text">
+                                Als je de les hierboven nuttig vond en graag zou willen bewaren kan je hier het pdf downloaden.
+                                Als je de les graag wilt bewerken is dat ook mogelijk, download dan het word document.
+                                Deze les is vrijgegeven onder de <a href="http://unlicense.org/" target="_blank">Unlicense</a> licentie.
+                            </div>
+
+                            <div class="mdl-card__actions mdl-card--border" style="text-align: center;">
+                                <a href="../documents/DraaienMetGyro.pdf" style="display:inline-block; float: left;" class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">PDF</a>
+                                <a href="../documents/DraaienMetGyro.docx" style="display:inline-block; float: right" class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">WORD</a>
+                            </div>
+                        </div>
+                    </form>
+
+                    <footer class="mdl-mini-footer">
+                        <div class="mdl-mini-footer__left-section">
+                            <div class="mdl-logo">EV3EDU</div>
+                            <ul class="mdl-mini-footer__link-list">
+                                <li><a href="contact.php">Contact</a></li>
+                                <li><a href="licentie.html">Licentie</a></li>
+                            </ul>
+                        </div>
+                    </footer>
+
+                </div>
+            </main>
+        </div>
+
+        <script id="script">
+            //
+            // If absolute URL from the remote server is provided, configure the CORS
+            // header on that server.
+            //
+            var url = '../documents/DraaienMetGyro.pdf';
+
+
+            //
+            // Disable workers to avoid yet another cross-origin issue (workers need
+            // the URL of the script to be loaded, and dynamically loading a cross-origin
+            // script does not work).
+            //
+            // PDFJS.disableWorker = true;
+
+            //
+            // In cases when the pdf.worker.js is located at the different folder than the
+            // pdf.js's one, or the pdf.js is executed via eval(), the workerSrc property
+            // shall be specified.
+            //
+            // PDFJS.workerSrc = '../../build/pdf.worker.js';
+
+            var pdfDoc = null,
+                    pageNum = 1,
+                    pageRendering = false,
+                    pageNumPending = null,
+                    scale = 1.2,
+                    canvas = document.getElementById('the-canvas'),
+                    ctx = canvas.getContext('2d');
+
+            /**
+             * Get page info from document, resize canvas accordingly, and render page.
+             * @param num Page number.
+             */
+            function renderPage(num) {
+                pageRendering = true;
+                // Using promise to fetch the page
+                pdfDoc.getPage(num).then(function (page) {
+                    var viewport = page.getViewport(scale);
+                    canvas.height = viewport.height;
+                    canvas.width = viewport.width;
+
+                    // Render PDF page into canvas context
+                    var renderContext = {
+                        canvasContext: ctx,
+                        viewport: viewport
+                    };
+                    var renderTask = page.render(renderContext);
+
+                    // Wait for rendering to finish
+                    renderTask.promise.then(function () {
+                        pageRendering = false;
+                        if (pageNumPending !== null) {
+                            // New page rendering is pending
+                            renderPage(pageNumPending);
+                            pageNumPending = null;
+                        }
+                    });
+                });
+
+                // Update page counters
+                document.getElementById('page_num').textContent = pageNum;
+            }
+
+            /**
+             * If another page rendering in progress, waits until the rendering is
+             * finised. Otherwise, executes rendering immediately.
+             */
+            function queueRenderPage(num) {
+                if (pageRendering) {
+                    pageNumPending = num;
+                } else {
+                    renderPage(num);
+                }
+            }
+
+            /**
+             * Displays previous page.
+             */
+            function onPrevPage() {
+                if (pageNum <= 1) {
+                    return;
+                }
+                pageNum--;
+                queueRenderPage(pageNum);
+            }
+            document.getElementById('prev').addEventListener('click', onPrevPage);
+
+            /**
+             * Displays next page.
+             */
+            function onNextPage() {
+                if (pageNum >= pdfDoc.numPages) {
+                    return;
+                }
+                pageNum++;
+                queueRenderPage(pageNum);
+            }
+            document.getElementById('next').addEventListener('click', onNextPage);
+
+            /**
+             * Asynchronously downloads PDF.
+             */
+            PDFJS.getDocument(url).then(function (pdfDoc_) {
+                pdfDoc = pdfDoc_;
+                document.getElementById('page_count').textContent = pdfDoc.numPages;
+
+                // Initial/first page rendering
+                renderPage(pageNum);
+            });
+        </script>
+
+    </body>
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+

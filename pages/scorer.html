@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <link href="../images/favicon.png" rel="icon">
+        <link id="materialcolors" rel="stylesheet" href="https://storage.googleapis.com/code.getmdl.io/1.0.6/material.blue_grey-light_blue.min.css" />  
+        <link rel="stylesheet" type="text/css" href="../styles/stylesheet.css" />
+        <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+
+        <script src="https://storage.googleapis.com/code.getmdl.io/1.0.6/material.min.js"></script>
+        <script type="text/javascript" src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
+        <script type="text/javascript" src="../scripts/scoreform.js"></script>
+        <script type="text/javascript" src="../scripts/colorchanger.js"></script>
+        <script type="text/javascript" src="../scripts/footer.js"></script>
+
+        <meta name="description" content="Deze website gaat over de First Lego League (FLL), je vind hier bouw en programmeer instructies, ook vind je er een score formulier." />
+        <meta name="keywords" content="FLL First Lego League Programmeren Score Trash Trek " />
+        <meta name="author" content="meta-tags generator">
+        <title>Score Formulier</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <style>
+        </style>
+    </head>
+
+    <body>
+        <!-- Always shows a header, even in smaller screens. -->
+        <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+            <header class="mdl-layout__header">
+                <div class="mdl-layout__header-row">
+                    <!-- Title -->
+                    <span class="mdl-layout-title" id="totalscore">0 punten</span>
+                    <!-- Add spacer, to align navigation to the right -->
+                    <div class="mdl-layout-spacer"></div>
+                    <!-- Navigation. We hide it in small screens. -->
+                    <nav class="mdl-navigation mdl-layout--large-screen-only">
+                        <a class="mdl-navigation__link" href="../index.html">Home</a>
+                        <a class="mdl-navigation__link thispage" href="scorer.html">Score Formulier</a>
+                        <a class="mdl-navigation__link" href="build.html">Bouw Instructies</a>
+                        <a class="mdl-navigation__link" href="gyro.html">Gyro Les</a>
+                        <a class="mdl-navigation__link" href="contact.php">Contact</a>
+                        <a class="mdl-navigation__link" href="over.html">Over</a>
+                    </nav>
+                </div>
+            </header>
+            <div class="mdl-layout__drawer">
+                <nav class="mdl-navigation">
+                    <a class="mdl-navigation__link" href="../index.html">Home</a>
+                    <a class="mdl-navigation__link" href="scorer.html">Score Formulier</a>
+                    <a class="mdl-navigation__link" href="build.html">Bouw Instructies</a>
+                    <a class="mdl-navigation__link" href="gyro.html">Gyro Les</a>
+                    <a class="mdl-navigation__link" href="contact.php">Contact</a>
+                    <a class="mdl-navigation__link" href="over.html">Over</a>
+                </nav>
+            </div>
+            <main class="mdl-layout__content">
+                <div class="page-content">
+
+                    <form id="reset">
+                        <!-- M01 -->
+                        <div class="demo-card-wide mdl-card mdl-shadow--2dp">
+                            <div class="mdl-card__title" style="background: url('../images/scorer/M01.png') center no-repeat">
+                                <h2 class="mdl-card__title-text">Gerecycled materiaal gebruiken</h2>
+                            </div>
+                            <div class="mdl-card__supporting-text">
+                                <span>Aantal overeenkomende balken in containers in &quot;Safety&quot;</span>
+                                <strong>
+                                    <span id="M01yousteps">0</span>
+                                </strong>
+                                <br>
+                                <input class="mdl-slider mdl-js-slider" type="range" min="0" max="120" value="0" step="60" tabindex="0" id="M01you" />
+                            </div>
+                            <div class="mdl-card__supporting-text">
+                                <span>Aantal overeenkomende balken in containers in tegenstanders &quot;Safety&quot;</span>
+                                <strong>
+                                    <span id="M01othersteps">0</span>
+                                </strong>
+                                <br>
+                                <input class="mdl-slider mdl-js-slider" type="range" min="0" max="120" value="0" step="60" tabindex="0" id="M01other" />
+                            </div>
+                            <div class="mdl-card__menu">
+                                <h2 class="mdl-card__title-text">0 - 240pt</h2>
+                            </div>
+                        </div>
+
+                        <!-- M02 -->
+                        <div class="demo-card-wide mdl-card mdl-shadow--2dp">
+                            <div class="mdl-card__title" style="background: url('../images/scorer/M02.png') center no-repeat">
+                                <h2 class="mdl-card__title-text">Methaan</h2>
+                            </div>
+                            <div class="mdl-card__supporting-text">
+                                <span>Aantal methaan correct geplaatst</span>
+                                <strong>
+                                    <span id="M02">0</span>
+                                </strong>
+                                <br>
+                                <input class="mdl-slider mdl-js-slider" type="range" min="0" max="80" value="0" step="40" tabindex="0" id="methaan" />
+                            </div>
+                            <div class="mdl-card__menu">
+                                <h2 class="mdl-card__title-text">40/80pt</h2>
+                            </div>
+                        </div>
+
+                        <!-- M03 -->
+                        <div class="demo-card-wide mdl-card mdl-shadow--2dp">
+                            <div class="mdl-card__title" style="background: url('../images/scorer/M03.png') center no-repeat">
+                                <h2 class="mdl-card__title-text">Vervoer</h2>
+                            </div>
+                            <div class="mdl-card__supporting-text">
+                                <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="M03weight">
+                                    <input type="checkbox" id="M03weight" value="50" class="mdl-checkbox__input" />
+                                    <span class="mdl-checkbox__label">Vrachtwagen draagt gele container volledig</span>
+                                </label>
+                                <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="M03rail">
+                                    <input type="checkbox" id="M03rail" value="60" class="mdl-checkbox__input" />
+                                    <span class="mdl-checkbox__label">Gele container volledig oost v.d. vrachtwagengeleider</span>
+                                </label>
+                            </div>
+                            <div class="mdl-card__menu">
+                                <h2 class="mdl-card__title-text">0 - 110pt</h2>
+                            </div>
+                        </div>
+
+                        <!-- M04-->
+                        <div class="demo-card-wide mdl-card mdl-shadow--2dp">
+                            <div class="mdl-card__title" style="background: url('../images/scorer/M10.png') center no-repeat">
+                                <h2 class="mdl-card__title-text">Sorteren</h2>
+                            </div>
+                            <div class="mdl-card__supporting-text">
+                                <span>Volledig in/op wetselijke &quot;Transfer&quot;</span>
+                                <br>
+                                <span>Blauwe/gele staven in bijbehorende container(s)</span>
+                                <strong>
+                                    <span id="M04insteps">0</span>
+                                </strong>
+                                <br>
+                                <input class="mdl-slider mdl-js-slider" type="range" min="0" max="105" value="0" step="7" tabindex="0" id="M04in" />
+                                <br>
+                                <span>Nooit volledig in wetselijke &quot;Transfer&quot;</span>
+                                <br>
+                                <span>Blauwe/gele staven in bijbehorende container(s)</span>
+                                <strong>
+                                    <span id="M04uitsteps">0</span>
+                                </strong>
+                                <br>
+                                <input class="mdl-slider mdl-js-slider" type="range" min="0" max="90" value="0" step="6" tabindex="0" id="M04uit" />
+                                <br>
+                                <span>Zwarte staven in start positie/scorende bloempot</span>
+                                <strong>
+                                    <span id="M04blackstartsteps">0</span>
+                                </strong>
+                                <br>
+                                <input class="mdl-slider mdl-js-slider" type="range" min="0" max="96" value="0" step="8" tabindex="0" id="M04zwstart" />
+                                <br>
+                                <span>Zwarte staven in bijbehorende container(s)</span>
+                                <strong>
+                                    <span id="M04blackcontsteps">0</span>
+                                </strong>
+                                <br>
+                                <input class="mdl-slider mdl-js-slider" type="range" min="0" max="36" value="0" step="3" tabindex="0" id="M04zwcont" />
+                                <br>
+                                <span>Zwarte staven ergens anders</span>
+                                <strong>
+                                    <span id="M04negsteps">0</span>
+                                </strong>
+                                <br>
+                                <input class="mdl-slider mdl-js-slider" type="range" min="0" max="96" value="0" step="8" tabindex="0" id="M04neg" />
+                            </div>
+                            <div class="mdl-card__menu">
+                                <h2 class="mdl-card__title-text">-96 - 201pt</h2>
+                            </div>
+                        </div>
+
+                        <!--M05-->
+                        <div class="demo-card-wide mdl-card mdl-shadow--2dp">
+                            <div class="mdl-card__title" style="background: url('../images/scorer/M05.png') center no-repeat">
+                                <h2 class="mdl-card__title-text">Carri&egrave;res</h2>
+                            </div>
+                            <div class="mdl-card__supporting-text">
+                                <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="M05">
+                                    <input type="checkbox" id="M05" value="60" class="mdl-checkbox__input" />
+                                    <span class="mdl-checkbox__label">1+ persoon volledig in sorteergebied</span>
+                                </label>
+                            </div>
+                            <div class="mdl-card__menu">
+                                <h2 class="mdl-card__title-text">60pt</h2>
+                            </div>
+                        </div>
+
+                        <!-- M06 -->
+                        <div class="demo-card-wide mdl-card mdl-shadow--2dp">
+                            <div class="mdl-card__title" style="background: url('../images/scorer/M06.png') center no-repeat">
+                                <h2 class="mdl-card__title-text">Sloopauto&rsquo;s</h2>
+                            </div>
+                            <div class="mdl-card__supporting-text">
+                                <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="M06-option-1">
+                                    <input type="radio" id="M06-option-1" class="mdl-radio__button" name="M06" value="0" checked="checked" />
+                                    <span class="mdl-radio__label">Niet gedaan/mislukt</span>
+                                </label>
+                                <br>
+                                <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="M06-option-2">
+                                    <input type="radio" id="M06-option-2" class="mdl-radio__button" name="M06" value="50" />
+                                    <span class="mdl-radio__label">Volledig opgevouwen &amp; Volledig in &quot;Safety&quot;</span>
+                                </label>
+                                <br>
+                                <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="M06-option-3">
+                                    <input type="radio" id="M06-option-3" class="mdl-radio__button" name="M06" value="65" />
+                                    <span class="mdl-radio__label">Voorruit &amp; motor juist ge&iuml;nstalleerd</span>
+                                </label>
+                            </div>
+                            <div class="mdl-card__menu">
+                                <h2 class="mdl-card__title-text">50/65pt</h2>
+                            </div>
+                        </div>
+
+                        <!-- M07 -->
+                        <div class="demo-card-wide mdl-card mdl-shadow--2dp">
+                            <div class="mdl-card__title" style="background: url('../images/scorer/M07.png') center no-repeat">
+                                <h2 class="mdl-card__title-text">Schoonmaak</h2>
+                            </div>
+                            <div class="mdl-card__supporting-text">
+                                <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="M07empty">
+                                    <input type="checkbox" id="M07empty" class="mdl-checkbox__input" />
+                                    <span class="mdl-checkbox__label">Geen plastic in cirkel met dieren</span>
+                                </label>
+                                <br>
+                                <span>Aantal plastic tasjes volledig in &quot;Safety&quot;</span>
+                                <strong>
+                                    <span id="M07plasticsteps">0</span>
+                                </strong>
+                                <br>
+                                <input class="mdl-slider mdl-js-slider" type="range" min="0" max="60" value="0" step="30" tabindex="0" id="plastic" />
+                                <br>
+                                <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="M07chicken">
+                                    <input type="checkbox" id="M07chicken" class="mdl-checkbox__input" />
+                                    <span class="mdl-checkbox__label">Kip volledig in kleine cirkel</span>
+                                </label>
+                                <br>
+                                <span>Aantal dieren volledig in volledig vrije cirkel:</span>
+                                <strong>
+                                    <span id="M07animalsteps">0</span>
+                                </strong>
+                                <br>
+                                <input class="mdl-slider mdl-js-slider" type="range" min="0" max="60" value="0" step="20" tabindex="0" id="animals" />
+                            </div>
+                            <div class="mdl-card__menu">
+                                <h2 class="mdl-card__title-text">0 - 155pt</h2>
+                            </div>
+                        </div>
+
+                        <!-- M08 -->
+                        <div class="demo-card-wide mdl-card mdl-shadow--2dp">
+                            <div class="mdl-card__title" style="background: url( '../images/scorer/M08.png') center no-repeat">
+                                <h2 class="mdl-card__title-text">Composteren</h2>
+                            </div>
+                            <div class="mdl-card__supporting-text">
+                                <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="M08-option-1">
+                                    <input type="radio" id="M08-option-1" class="mdl-radio__button" name="M08" value="0" checked="checked" />
+                                    <span class="mdl-radio__label">Niet gedaan/mislukt</span>
+                                </label>
+                                <br>
+                                <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="M08-option-2">
+                                    <input type="radio" id="M08-option-2" class="mdl-radio__button" name="M08" value="60" />
+                                    <span class="mdl-radio__label">Compost uitgestoten, niet volledig in &quot;Safety&quot;</span>
+                                </label>
+                                <br>
+                                <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="M08-option-3">
+                                    <input type="radio" id="M08-option-3" class="mdl-radio__button" name="M08" value="80" />
+                                    <span class="mdl-radio__label">Compost uitgestoten &amp; volledig in &quot;Safety&quot;</span>
+                                </label>
+                            </div>
+                            <div class="mdl-card__menu">
+                                <h2 class="mdl-card__title-text">60/80pt</h2>
+                            </div>
+                        </div>
+
+                        <!--M09-->
+                        <div class="demo-card-wide mdl-card mdl-shadow--2dp">
+                            <div class="mdl-card__title" style="background: url('../images/scorer/M09.png') center no-repeat">
+                                <h2 class="mdl-card__title-text">Behoud</h2>
+                            </div>
+                            <div class="mdl-card__supporting-text">
+                                <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="M09">
+                                    <input type="checkbox" id="M09" value="60" class="mdl-checkbox__input" />
+                                    <span class="mdl-checkbox__label">Waardevol materiaal volledig in &quot;Safety&quot;</span>
+                                </label>
+                            </div>
+                            <div class="mdl-card__menu">
+                                <h2 class="mdl-card__title-text">60pt</h2>
+                            </div>
+                        </div>
+
+                        <!--M10-->
+                        <div class="demo-card-wide mdl-card mdl-shadow--2dp">
+                            <div class="mdl-card__title" style="background: url('../images/scorer/M10.png') center no-repeat">
+                                <h2 class="mdl-card__title-text">Sloopwerken</h2>
+                            </div>
+                            <div class="mdl-card__supporting-text">
+                                <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="M10">
+                                    <input type="checkbox" id="M10" value="85" class="mdl-checkbox__input" />
+                                    <span class="mdl-checkbox__label">Geen staaf rechtop in startpositie</span>
+                                </label>
+                            </div>
+                            <div class="mdl-card__menu">
+                                <h2 class="mdl-card__title-text">85pt</h2>
+                            </div>
+                        </div>
+
+                        <!-- M11 -->
+                        <div class="demo-card-wide mdl-card mdl-shadow--2dp">
+                            <div class="mdl-card__title" style="background: url('../images/scorer/M11.png') center no-repeat">
+                                <h2 class="mdl-card__title-text">Aankoop beslissingen</h2>
+                            </div>
+                            <div class="mdl-card__supporting-text">
+                                <span>Speelgoedvliegtuigjes volledig in &quot;Safety&quot;</span>
+                                <strong>
+                                    <span id="M11steps">0</span>
+                                </strong>
+                                <br>
+                                <input class="mdl-slider mdl-js-slider" type="range" min="0" max="80" value="0" step="40" tabindex="0" id="aankoop" />
+                            </div>
+                            <div class="mdl-card__menu">
+                                <h2 class="mdl-card__title-text">40/80pt</h2>
+                            </div>
+                        </div>
+
+                        <!--M12-->
+                        <div class="demo-card-wide mdl-card mdl-shadow--2dp">
+                            <div class="mdl-card__title" style="background: url('../images/scorer/M12.png') center no-repeat">
+                                <h2 class="mdl-card__title-text">Hergebruiken</h2>
+                            </div>
+                            <div class="mdl-card__supporting-text">
+                                <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="M12">
+                                    <input type="checkbox" id="M12" value="40" class="mdl-checkbox__input" />
+                                    <span class="mdl-checkbox__label">Compost volledig in 1 v.d. verpakkingen</span>
+                                </label>
+                                <br>
+                            </div>
+                            <div class="mdl-card__menu">
+                                <h2 class="mdl-card__title-text">40pt</h2>
+                            </div>
+                        </div>
+                    </form>
+
+                </div>
+            </main>
+
+        </div>
+
+        <!-- Colored mini FAB button for scrolling up -->
+        <button id="scrollToTop" onclick='$(".mdl-layout__content").animate({scrollTop: 0}, "slow");' class="mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab mdl-button--colored mdl-js-ripple-effect">
+            <i class="material-icons">keyboard_arrow_up</i>
+        </button>
+    </body>
+
+</html>

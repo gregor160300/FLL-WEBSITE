@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <link href="../images/favicon.png" rel="icon">
+        <link id="materialcolors" rel="stylesheet" href="https://storage.googleapis.com/code.getmdl.io/1.0.6/material.blue_grey-light_blue.min.css" />         
+        <link rel="stylesheet" type="text/css" href="../styles/stylesheet.css" />
+        <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+
+        <script src="https://storage.googleapis.com/code.getmdl.io/1.0.6/material.min.js"></script>
+        <script type="text/javascript" src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
+        <script type="text/javascript" src="../scripts/photoscript.js"></script>
+        <script type="text/javascript" src="../scripts/colorchanger.js"></script>
+        <script type="text/javascript" src="../scripts/footer.js"></script>
+
+        <meta name="description" content="Deze website gaat over de First Lego League (FLL), je vind hier bouw en programmeer instructies, ook vind je er een score formulier." />
+        <meta name="keywords" content="FLL First Lego League Programmeren Score Trash Trek " />
+        <meta name="author" content="meta-tags generator">
+        <title>Bouw Instructies</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <!-- Adapted wide card -->
+        <style>
+            .mdl-card__supporting-text {
+                max-width: 800px !important;
+                margin: auto;
+            }
+
+            #images {
+                height: 100%;
+                width: 100%;
+            }
+
+            input[type='number'] {
+                -moz-appearance: textfield;
+                -webkit-appearance: textfield;
+            }
+
+            input::-webkit-outer-spin-button,
+            input::-webkit-inner-spin-button {
+                /* display: none; <- Crashes Chrome on hover */
+                -webkit-appearance: none;
+                margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
+            }
+        </style>
+    </head>
+
+    <body>
+        <!-- Always shows a header, even in smaller screens. -->
+        <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+            <header class="mdl-layout__header">
+                <div class="mdl-layout__header-row">
+                    <!-- Title -->
+                    <span class="mdl-layout-title">Bouw Instructies</span>
+                    <!-- Add spacer, to align navigation to the right -->
+                    <div class="mdl-layout-spacer"></div>
+                    <!-- Navigation. We hide it in small screens. -->
+                    <nav class="mdl-navigation mdl-layout--large-screen-only">
+                        <a class="mdl-navigation__link" href="../index.html">Home</a>
+                        <a class="mdl-navigation__link" href="scorer.html">Score Formulier</a>
+                        <a class="mdl-navigation__link thispage" href="build.html">Bouw Instructies</a>
+                        <a class="mdl-navigation__link" href="gyro.html">Gyro Les</a>
+                        <a class="mdl-navigation__link" href="contact.php">Contact</a>
+                        <a class="mdl-navigation__link" href="over.html">Over</a>
+                    </nav>
+                </div>
+            </header>
+            <div class="mdl-layout__drawer">
+                <nav class="mdl-navigation">
+                    <a class="mdl-navigation__link" href="../index.html">Home</a>
+                    <a class="mdl-navigation__link" href="scorer.html">Score Formulier</a>
+                    <a class="mdl-navigation__link" href="build.html">Bouw Instructies</a>
+                    <a class="mdl-navigation__link" href="gyro.html">Gyro Les</a>
+                    <a class="mdl-navigation__link" href="contact.php">Contact</a>
+                    <a class="mdl-navigation__link" href="over.html">Over</a>
+                </nav>
+            </div>
+            <main class="mdl-layout__content">
+                <div class="page-content">
+
+                    <form id="photos">
+                        <!-- Images Box -->
+                        <div class="demo-card-wide mdl-card mdl-shadow--2dp">
+                            <div id="imageofcard" class="mdl-card__title">
+                                <h2 class="mdl-card__title-text" id="title"></h2>
+                            </div>
+                            <div class="mdl-card__supporting-text">
+                                <span><img src="" id="images" alt="Alternatieve Tekst"/></span>
+                            </div>
+
+                            <div class="mdl-card__actions mdl-card--border" style="text-align: center;">
+                                <input id="prev" style="display:inline-block; float: left;" type="button" class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" value="vorige">
+                                <div style="display:inline-block; height: 36px; width:40px; margin: 0; padding: 0;" class="mdl-textfield mdl-js-textfield">
+                                    <input class="mdl-textfield__input" style="text-align: center;" value="1" type="number" min="1" max="85" id="picnumber" onchange="changeDetected(this.value);" onkeyup="this.onchange();" onkeydown="this.onchange();">
+                                </div>
+                                <input id="next" style="display:inline-block; float: right" type="button" class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" value="volgende">
+                            </div>
+                        </div>
+                    </form>
+
+                </div>
+
+            </main>
+        </div>
+
+        <script>
+            var width = $(".mdl-card__supporting-text").width() * 0.95;
+            $(".mdl-card__supporting-text").css("width", width);
+        </script>
+    </body>
+
+</html>
+
